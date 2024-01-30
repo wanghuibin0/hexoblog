@@ -5,45 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 7.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexoblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexoblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexoblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/hexoblog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/hexoblog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/hexoblog/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wanghuibin0.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="适配器模式场景想使用一个已经存在的类，而它的接口不符合需求 方案 基于多重继承的Adaptor类实现需要的接口，同时私有继承（实现继承）那个已经存在的类Adaptee。Adaptor类在实现接口的时候，将使用私有继承来的Adaptee来实现。 基于对象组合的Adaptor类实现需要的接口，其内部保存一个Adaptee的引用。Adaptor类在实现接口的时候，将委托Adaptee完成相应的功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记-设计模式-结构型模式">
-<meta property="og:url" content="http://wanghuibin0.github.io/posts/2022/02/design-pattern-3/index.html">
+<meta property="og:url" content="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-3/index.html">
 <meta property="og:site_name" content="子来园">
 <meta property="og:description" content="适配器模式场景想使用一个已经存在的类，而它的接口不符合需求 方案 基于多重继承的Adaptor类实现需要的接口，同时私有继承（实现继承）那个已经存在的类Adaptee。Adaptor类在实现接口的时候，将使用私有继承来的Adaptee来实现。 基于对象组合的Adaptor类实现需要的接口，其内部保存一个Adaptee的引用。Adaptor类在实现接口的时候，将委托Adaptee完成相应的功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_18-50-27_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_18-50-57_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_19-04-45_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_19-17-13_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_19-18-19_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_19-32-11_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_19-43-44_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_20-34-22_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_20-43-37_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_18-50-27_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_18-50-57_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_19-04-45_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_19-17-13_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_19-18-19_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_19-32-11_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_19-43-44_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_20-34-22_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_20-43-37_screenshot.png">
 <meta property="article:published_time" content="2022-02-06T04:54:00.000Z">
 <meta property="article:modified_time" content="2023-10-05T06:27:37.000Z">
 <meta property="article:author" content="Hybert">
 <meta property="article:tag" content="软件设计">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_18-50-27_screenshot.png">
+<meta name="twitter:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_18-50-27_screenshot.png">
 
-<link rel="canonical" href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-3/">
+<link rel="canonical" href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-3/">
 
 
 <script id="page-configurations">
@@ -105,7 +105,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/hexoblog/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">子来园</h1>
       <span class="logo-line-after"><i></i></span>
@@ -126,22 +126,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -176,10 +176,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-3/">
+    <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -214,7 +214,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
+                  <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
@@ -250,34 +250,34 @@
 </ul>
 <h3 id="UML表示"><a href="#UML表示" class="headerlink" title="UML表示"></a>UML表示</h3><ul>
 <li><p>基于多重继承的</p>
-<p><img src="/ox-hugo/2022-02-06_18-50-27_screenshot.png"></p>
+<p><img src="/hexoblog/ox-hugo/2022-02-06_18-50-27_screenshot.png"></p>
 </li>
 <li><p>基于对象组合的</p>
-<p><img src="/ox-hugo/2022-02-06_18-50-57_screenshot.png"></p>
+<p><img src="/hexoblog/ox-hugo/2022-02-06_18-50-57_screenshot.png"></p>
 </li>
 </ul>
 <h3 id="两种方案的权衡"><a href="#两种方案的权衡" class="headerlink" title="两种方案的权衡"></a>两种方案的权衡</h3><p>对象适配器比较灵活，允许适配Adaptee以及它的所有子类。而类适配器则不行。<br>对象适配器需要额外的指针，类适配器不需要。</p>
 <h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><h3 id="场景-1"><a href="#场景-1" class="headerlink" title="场景"></a>场景</h3><p>要将抽象部分与它的实现部分分离，使它们都可以独立地变化</p>
 <h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><p>将抽象和实现部分分别放在独立的类层次结构中，其中一个针对接口，另一个针对实现，针对接口的类层次结构需要保存一个关于实现的对象的引用。</p>
-<h3 id="UML表示-1"><a href="#UML表示-1" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_19-04-45_screenshot.png"></p>
+<h3 id="UML表示-1"><a href="#UML表示-1" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_19-04-45_screenshot.png"></p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>虽然UML类图与对象适配器很相似，但是两者的目的不同，对象适配器是为了实现接口的转换，而桥接模式是为了将接口和实现分离。</p>
 <h2 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h2><h3 id="场景-2"><a href="#场景-2" class="headerlink" title="场景"></a>场景</h3><p>处理具有整体-部分层次结构特征的对象，一些复杂的组件是由简单的组件组合而成，这些复杂的组件又是更复杂组件的组成部分。<br>想对所有组件进行统一处理。</p>
 <h3 id="方案-2"><a href="#方案-2" class="headerlink" title="方案"></a>方案</h3><p>关键是让所有组件继承自同一接口。复杂组件保存有简单组件的引用。<br>形成的动态结构是树状的。</p>
-<h3 id="UML表示-2"><a href="#UML表示-2" class="headerlink" title="UML表示"></a>UML表示</h3><h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="/ox-hugo/2022-02-06_19-17-13_screenshot.png"></p>
-<h4 id="动态对象图"><a href="#动态对象图" class="headerlink" title="动态对象图"></a>动态对象图</h4><p><img src="/ox-hugo/2022-02-06_19-18-19_screenshot.png"></p>
+<h3 id="UML表示-2"><a href="#UML表示-2" class="headerlink" title="UML表示"></a>UML表示</h3><h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="/hexoblog/ox-hugo/2022-02-06_19-17-13_screenshot.png"></p>
+<h4 id="动态对象图"><a href="#动态对象图" class="headerlink" title="动态对象图"></a>动态对象图</h4><p><img src="/hexoblog/ox-hugo/2022-02-06_19-18-19_screenshot.png"></p>
 <h2 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h2><h3 id="场景-3"><a href="#场景-3" class="headerlink" title="场景"></a>场景</h3><p>希望给某个对象而不是整个类添加一些功能。用继承方式不够灵活。</p>
 <h3 id="方案-3"><a href="#方案-3" class="headerlink" title="方案"></a>方案</h3><p>将组件嵌入另一个对象中（装饰对象保存有原组件的引用）。装饰对象接受到请求时，在将请求发给原组件前后，可以自由执行一些额外的动作。<br>由于原组件和所有的装饰类都继承自同一接口，所以可以递归地嵌套多个装饰对象，从而添加任意多的功能。<br>形成的动态结构有点类似于链表。</p>
-<h3 id="UML表示-3"><a href="#UML表示-3" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_19-32-11_screenshot.png"></p>
+<h3 id="UML表示-3"><a href="#UML表示-3" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_19-32-11_screenshot.png"></p>
 <h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><p>与组合模式相比，可以将装饰视为一个退化的、仅有一个组件的组合。然而，装饰仅给对象添加一些额外的职责，而组合的目的在于对象的聚集。</p>
 <h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><h3 id="场景-4"><a href="#场景-4" class="headerlink" title="场景"></a>场景</h3><p>为子系统的一组接口提供一个一致的界面</p>
 <h3 id="方案-4"><a href="#方案-4" class="headerlink" title="方案"></a>方案</h3><p>提供一个高层接口，给客户一个一致的界面。而该接口的具体实现委托给子系统。</p>
-<h3 id="UML表示-4"><a href="#UML表示-4" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_19-43-44_screenshot.png"></p>
+<h3 id="UML表示-4"><a href="#UML表示-4" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_19-43-44_screenshot.png"></p>
 <h2 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h2><h3 id="场景-5"><a href="#场景-5" class="headerlink" title="场景"></a>场景</h3><p>运行过程中创建了大量的对象，造成很大的存储开销。而且对象的大多数状态都可变为外部状态。</p>
 <h3 id="方案-5"><a href="#方案-5" class="headerlink" title="方案"></a>方案</h3><p>享元模式通过共享技术实现相同或相似对象的重用。<br>在享元模式中可以共享的相同内容称为内部状态(Intrinsic State)，而那些需要外部环境来设置的不能共享的内容称为外部状态(Extrinsic State)，<br>由于区分了内部状态和外部状态，因此可以通过设置不同的外部状态使得相同的对象可以具有一些不同的特征，而相同的内部状态是可以共享的。</p>
-<h3 id="UML表示-5"><a href="#UML表示-5" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_20-34-22_screenshot.png"></p>
+<h3 id="UML表示-5"><a href="#UML表示-5" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_20-34-22_screenshot.png"></p>
 <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><h3 id="场景-6"><a href="#场景-6" class="headerlink" title="场景"></a>场景</h3><p>一个客户不想或者不能直接引用一个对象</p>
 <h3 id="方案-6"><a href="#方案-6" class="headerlink" title="方案"></a>方案</h3><p>通过引入一个新的对象（如小图片和远程代理 对象）来实现对真实对象的操作或者将新的对象作为真实对象的一个替身。</p>
-<h3 id="UML表示-6"><a href="#UML表示-6" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_20-43-37_screenshot.png"></p>
+<h3 id="UML表示-6"><a href="#UML表示-6" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_20-43-37_screenshot.png"></p>
 <h2 id="结构型模式的讨论"><a href="#结构型模式的讨论" class="headerlink" title="结构型模式的讨论"></a>结构型模式的讨论</h2><ol>
 <li>适配器模式和桥接模式<br>适配器用于解决两个已有接口不匹配的问题。桥接模式是为了将抽象和实现两者独立演化。</li>
 <li>组合模式和装饰模式<br>都基于递归组合来组织可变数目的对象，但目的不同。组合模式旨在使整体与部分统一处理，而装饰模式旨在给对象添加职责。</li>
@@ -297,7 +297,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-3/" title="读书笔记-设计模式-结构型模式">http://wanghuibin0.github.io/posts/2022/02/design-pattern-3/</a>
+    <a href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-3/" title="读书笔记-设计模式-结构型模式">https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-3/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -327,7 +327,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag"># 软件设计</a>
+              <a href="/hexoblog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag"># 软件设计</a>
           </div>
 
         
@@ -336,11 +336,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2022/02/design-pattern-2/" rel="prev" title="读书笔记-设计模式-创建型模式">
+    <a href="/hexoblog/posts/2022/02/design-pattern-2/" rel="prev" title="读书笔记-设计模式-创建型模式">
       <i class="fa fa-chevron-left"></i> 读书笔记-设计模式-创建型模式
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/2022/02/design-pattern-4/" rel="next" title="读书笔记-设计模式-行为型模式">
+    <a href="/hexoblog/posts/2022/02/design-pattern-4/" rel="next" title="读书笔记-设计模式-行为型模式">
       读书笔记-设计模式-行为型模式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -413,20 +413,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/hexoblog/archives/">
         
           <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/hexoblog/categories/">
           
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/hexoblog/tags/">
           
         <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
@@ -442,7 +442,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/hexoblog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -509,21 +509,21 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/hexoblog/lib/anime.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/hexoblog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/hexoblog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/hexoblog/js/schemes/muse.js"></script>
 
-<script src="/js/bookmark.js"></script>
+
+<script src="/hexoblog/js/next-boot.js"></script>
+
+<script src="/hexoblog/js/bookmark.js"></script>
 
 
 

@@ -5,43 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 7.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexoblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexoblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexoblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/hexoblog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/hexoblog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/hexoblog/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wanghuibin0.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="简单工厂模式场景创建一系列类似的产品，这些产品有差异，但属于同一类 方案 创建产品的基类，为抽象产品 一系列具体的产品继承自抽象产品 创建一个工厂类，该工厂知道所有的具体产品，可以根据传入的参数构造相应的具体产品，返回抽象产品 客户不需要知道具体产品类，只需要知道工厂类以及具体产品，就可以请求工厂为之构造具体产品  UML表示 其他这里的工厂类也可以简化为一个普通的创建函数 工厂方法模式场景也是要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记-设计模式-创建型模式">
-<meta property="og:url" content="http://wanghuibin0.github.io/posts/2022/02/design-pattern-2/index.html">
+<meta property="og:url" content="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-2/index.html">
 <meta property="og:site_name" content="子来园">
 <meta property="og:description" content="简单工厂模式场景创建一系列类似的产品，这些产品有差异，但属于同一类 方案 创建产品的基类，为抽象产品 一系列具体的产品继承自抽象产品 创建一个工厂类，该工厂知道所有的具体产品，可以根据传入的参数构造相应的具体产品，返回抽象产品 客户不需要知道具体产品类，只需要知道工厂类以及具体产品，就可以请求工厂为之构造具体产品  UML表示 其他这里的工厂类也可以简化为一个普通的创建函数 工厂方法模式场景也是要">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_14-59-16_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_15-21-44_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_17-06-34_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_15-32-45_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_16-19-54_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_16-28-42_screenshot.png">
-<meta property="og:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_16-34-11_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_14-59-16_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_15-21-44_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_17-06-34_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_15-32-45_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_16-19-54_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_16-28-42_screenshot.png">
+<meta property="og:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_16-34-11_screenshot.png">
 <meta property="article:published_time" content="2022-02-06T00:41:00.000Z">
 <meta property="article:modified_time" content="2023-10-05T06:27:40.000Z">
 <meta property="article:author" content="Hybert">
 <meta property="article:tag" content="软件设计">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://wanghuibin0.github.io/ox-hugo/2022-02-06_14-59-16_screenshot.png">
+<meta name="twitter:image" content="https://simplecoding.fun/hexoblog/ox-hugo/2022-02-06_14-59-16_screenshot.png">
 
-<link rel="canonical" href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-2/">
+<link rel="canonical" href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-2/">
 
 
 <script id="page-configurations">
@@ -103,7 +103,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/hexoblog/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">子来园</h1>
       <span class="logo-line-after"><i></i></span>
@@ -124,22 +124,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -174,10 +174,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-2/">
+    <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -212,7 +212,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
+                  <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
@@ -248,7 +248,7 @@
 <li>创建一个工厂类，该工厂知道所有的具体产品，可以根据传入的参数构造相应的具体产品，返回抽象产品</li>
 <li>客户不需要知道具体产品类，只需要知道工厂类以及具体产品，就可以请求工厂为之构造具体产品</li>
 </ol>
-<h3 id="UML表示"><a href="#UML表示" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_14-59-16_screenshot.png"></p>
+<h3 id="UML表示"><a href="#UML表示" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_14-59-16_screenshot.png"></p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>这里的工厂类也可以简化为一个普通的创建函数</p>
 <h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><h3 id="场景-1"><a href="#场景-1" class="headerlink" title="场景"></a>场景</h3><p>也是要创建同一类但有差异的产品，每个产品的创建过程都比之前要复杂一些。<br>那么如果用简单工厂模式，工厂类的设计逻辑就比较复杂。</p>
 <h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><p>为每一个产品都配一个对应的工厂，这个工厂就只负责这一种产品</p>
@@ -258,9 +258,9 @@
 <li>具体的产品和具体的工厂存在着一一对应关系，一个工厂只负责一种产品的构造</li>
 <li>客户不需要知道具体的产品，但需要知道具体的工厂，给具体工厂发请求就可以得到具体的产品了</li>
 </ol>
-<h3 id="UML表示-1"><a href="#UML表示-1" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_15-21-44_screenshot.png"></p>
+<h3 id="UML表示-1"><a href="#UML表示-1" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_15-21-44_screenshot.png"></p>
 <h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><p>在C++中可以利用模板将产品和对应的工厂联系起来（将产品作为工厂模板的参数）</p>
-<p><img src="/ox-hugo/2022-02-06_17-06-34_screenshot.png"></p>
+<p><img src="/hexoblog/ox-hugo/2022-02-06_17-06-34_screenshot.png"></p>
 <h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><h3 id="场景-2"><a href="#场景-2" class="headerlink" title="场景"></a>场景</h3><p>产品不再是只有同一类了，产品也有多类，但是这些不同类的产品又需要同时对客户提供</p>
 <h3 id="方案-2"><a href="#方案-2" class="headerlink" title="方案"></a>方案</h3><p>一个具体工厂不再只生产一种具体产品了，而是负责生产一组产品。</p>
 <ol>
@@ -270,7 +270,7 @@
 <li>创建一系列具体工厂类，每个具体工厂都负责一组产品的构造</li>
 <li>客户不知道具体产品，只知道抽象产品类，也知道具体工厂类，给具体工厂发请求就可以得到那一组具体的产品了</li>
 </ol>
-<h3 id="UML表示-2"><a href="#UML表示-2" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_15-32-45_screenshot.png"></p>
+<h3 id="UML表示-2"><a href="#UML表示-2" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_15-32-45_screenshot.png"></p>
 <h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><h3 id="场景-3"><a href="#场景-3" class="headerlink" title="场景"></a>场景</h3><p>一个复杂对象拥有多个组成部分，如汽车，它包括车轮、方向盘、发送机等各种部件。</p>
 <h3 id="方案-3"><a href="#方案-3" class="headerlink" title="方案"></a>方案</h3><p>一步一步构造整个复杂对象。</p>
 <ol>
@@ -280,14 +280,14 @@
 <li>director负责构造整个复杂对象，而构造的方法是给自己关联的builder发消息，让builder把各个组成部分构造出来</li>
 <li>客户只需要知道具体的builder，把这个builder交给director，然后请求director构造复杂对象即可</li>
 </ol>
-<h3 id="UML表示-3"><a href="#UML表示-3" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_16-19-54_screenshot.png"></p>
+<h3 id="UML表示-3"><a href="#UML表示-3" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_16-19-54_screenshot.png"></p>
 <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><h3 id="场景-4"><a href="#场景-4" class="headerlink" title="场景"></a>场景</h3><p>原型模式多用于创建复杂的或者耗时的实例，因为这种情况下，复制一个已经存在的实例使程序运行更高效</p>
 <h3 id="方案-4"><a href="#方案-4" class="headerlink" title="方案"></a>方案</h3><p>给对象添加一个clone方法，用于实现对自身的拷贝。<br>需要注意的是clone的具体实现，是深拷贝还是浅拷贝，要视具体情况而定。</p>
-<h3 id="UML表示-4"><a href="#UML表示-4" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_16-28-42_screenshot.png"></p>
+<h3 id="UML表示-4"><a href="#UML表示-4" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_16-28-42_screenshot.png"></p>
 <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h3 id="场景-5"><a href="#场景-5" class="headerlink" title="场景"></a>场景</h3><p>有些类只需要唯一实例</p>
 <h3 id="方案-5"><a href="#方案-5" class="headerlink" title="方案"></a>方案</h3><p>一个类能返回对象一个引用(永远是同一个)和一个获得该实例的方法（必须是静态方法，通常使用getInstance这个名称）；<br>当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋予该类保持的引用；<br>同时我们还将该类的构造函数定义为私有方法，这样其他处的代码就无法通过调用该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例。</p>
 <p>多线程场景下要小心设计。</p>
-<h3 id="UML表示-5"><a href="#UML表示-5" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/ox-hugo/2022-02-06_16-34-11_screenshot.png"></p>
+<h3 id="UML表示-5"><a href="#UML表示-5" class="headerlink" title="UML表示"></a>UML表示</h3><p><img src="/hexoblog/ox-hugo/2022-02-06_16-34-11_screenshot.png"></p>
 <h2 id="对创建型模式的讨论"><a href="#对创建型模式的讨论" class="headerlink" title="对创建型模式的讨论"></a>对创建型模式的讨论</h2><ol>
 <li>抽象工厂模式，建造者模式，原型模式都是依赖于对象组合，都涉及到创建一个新的负责创建产品对象的「工厂对象」<ul>
 <li>抽象工厂模式由这个工厂对象产生多个类的对象</li>
@@ -315,7 +315,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wanghuibin0.github.io/posts/2022/02/design-pattern-2/" title="读书笔记-设计模式-创建型模式">http://wanghuibin0.github.io/posts/2022/02/design-pattern-2/</a>
+    <a href="https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-2/" title="读书笔记-设计模式-创建型模式">https://simplecoding.fun/hexoblog/posts/2022/02/design-pattern-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -345,7 +345,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag"># 软件设计</a>
+              <a href="/hexoblog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag"># 软件设计</a>
           </div>
 
         
@@ -354,11 +354,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2022/02/design-pattern-1/" rel="prev" title="读书笔记-设计模式-引言">
+    <a href="/hexoblog/posts/2022/02/design-pattern-1/" rel="prev" title="读书笔记-设计模式-引言">
       <i class="fa fa-chevron-left"></i> 读书笔记-设计模式-引言
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/2022/02/design-pattern-3/" rel="next" title="读书笔记-设计模式-结构型模式">
+    <a href="/hexoblog/posts/2022/02/design-pattern-3/" rel="next" title="读书笔记-设计模式-结构型模式">
       读书笔记-设计模式-结构型模式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -431,20 +431,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/hexoblog/archives/">
         
           <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/hexoblog/categories/">
           
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/hexoblog/tags/">
           
         <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
@@ -460,7 +460,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/hexoblog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -527,21 +527,21 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/hexoblog/lib/anime.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/hexoblog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
+<script src="/hexoblog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/hexoblog/js/schemes/muse.js"></script>
 
-<script src="/js/bookmark.js"></script>
+
+<script src="/hexoblog/js/next-boot.js"></script>
+
+<script src="/hexoblog/js/bookmark.js"></script>
 
 
 
