@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="子来园">
 <meta property="og:url" content="https://simplecoding.fun/hexoblog/page/4/index.html">
 <meta property="og:site_name" content="子来园">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="article:author" content="Hybert">
 <meta name="twitter:card" content="summary">
 
@@ -37,7 +37,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh-CN'
+    lang   : 'en'
   };
 </script>
 
@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -100,6 +100,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -111,29 +112,56 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -159,11 +187,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/02/better-decision/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -182,41 +210,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-02-05 14:55:00" itemprop="dateCreated datePublished" datetime="2022-02-05T14:55:00+08:00">2022-02-05</time>
+              <time title="Created: 2022-02-05 14:55:00" itemprop="dateCreated datePublished" datetime="2022-02-05T14:55:00+08:00">2022-02-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:27:47" itemprop="dateModified" datetime="2023-10-05T14:27:47+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:27:47" itemprop="dateModified" datetime="2023-10-05T14:27:47+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/02/better-decision/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/02/better-decision/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>885</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -228,17 +270,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>《为什么幸运的人总幸运，倒霉的人老倒霉》读书笔记</p>
-<p>这本小书用一个简单的故事介绍了一套做决定的方法。</p>
-<p>故事以一个年轻人参加徒步旅行的方式展开，路上分别与不同的人交谈。这些人给年轻人引导和分享，让年轻人逐步学会这套做决定的系统方法。年轻人在生活和工作中应用这套方法后，变得更加自信、坚定而果断，遇到事情时也能做出更加明智的决定。</p>
-<p>这套方法是怎样的呢？</p>
-<p>首先，停止继续执行一个错误的决定。只有停下来制造一段空白，才能以更好的行动填充它。<br>然后开始问自己问题。分为两方面，一是向头脑提问，二是向内心提问。</p>
-<p>向头脑提问的问题是：是不是正在满足自己真正的需要，告诉自己所有可以选择的方法，并对事情深思熟虑？</p>
-<p>向内心提问的问题是：我作这个决定对自己是不是诚实，有没有相信自己的直觉，是不是还应该得到更好的？</p>
-<p>关于向头脑提问，侧重于事实基础。首先要了解自己「需要」什么，尤其要区分清楚「需要（need）」和「想要（want）」的区别，如何判断是「需要」还是「想要」呢？方法是设想一个将来的场景，那时的自己会希望自己现在做这个事情吗，如果还是给出肯定的回答，那么就是「需要」，否则，就只是「想要」。<br>第二点是收集必要的信息，尽可能多地找出自己有哪些选择。这里的信息不止包括客观事实，也包括人们对事实的感受看法。方法包括观察和向有经验的人请教。<br>第三点是深思熟虑。对于每一个选择，都要推演下去，问：如果按照这个决定，可能会发生什么？然后呢？</p>
-<p>关于向内心提问，侧重于内心感受。首先是要对自己诚实，要坦诚面对真相，不要因为真相会带来不适而欺骗自己。要问自己：我有由于不想让自己不舒服而回避真相吗？<br>第二点是重视直觉。如果做了一个决定，就是感到不安，那么这个决定很可能是有问题的。要问自己：如果没有恐惧，我会怎么做？<br>第三点是相信自己值得更好的。需要真正的相信，而不是嘴上说相信，但内心深处在抗拒。如果很难做到内心真正的相信，可以这样做，问自己：如果我相信自己应该得到更好的结果，我会怎么做？然后将自己的答案付诸行动就好了。</p>
-<p>最后需要说明的是，要把这套方法放在触手可及的地方，比如钱包里，每当需要做决定的时候，就拿出来看看。</p>
+          《为什么幸运的人总幸运，倒霉的人老倒霉》读书笔记
 
+这本小书用一个简单的故事介绍了一套做决定的方法。
+
+故事以一个年轻人参加徒步旅行的方式展开，路上分别与不同的人交谈。这些人给年轻人引导和分享，让年轻
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/02/better-decision/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -256,11 +300,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/do-and-persist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -279,41 +323,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-26 04:24:00" itemprop="dateCreated datePublished" datetime="2022-01-26T04:24:00+08:00">2022-01-26</time>
+              <time title="Created: 2022-01-26 04:24:00" itemprop="dateCreated datePublished" datetime="2022-01-26T04:24:00+08:00">2022-01-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:27:50" itemprop="dateModified" datetime="2023-10-05T14:27:50+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:27:50" itemprop="dateModified" datetime="2023-10-05T14:27:50+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E6%80%9D%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">思维</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/do-and-persist/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/do-and-persist/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>78</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -325,10 +383,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>梁丘据谓晏子曰：「吾至死不及夫子矣！」</p>
-<p>晏子曰：「婴闻之，为者常成，行者常至。婴非有异于人也，常为而不置，常行而不休者，故难及也。」</p>
-<p>—— 《晏子春秋内篇·杂下》</p>
+          梁丘据谓晏子曰：「吾至死不及夫子矣！」
 
+晏子曰：「婴闻之，为者常成，行者常至。婴非有异于人也，常为而不置，常行而不休者，故难及也。」
+
+—— 《晏子春秋内篇·杂下》
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/do-and-persist/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -346,11 +413,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/latex-typeset-code-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -369,41 +436,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-21 15:09:00" itemprop="dateCreated datePublished" datetime="2022-01-21T15:09:00+08:00">2022-01-21</time>
+              <time title="Created: 2022-01-21 15:09:00" itemprop="dateCreated datePublished" datetime="2022-01-21T15:09:00+08:00">2022-01-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:27:53" itemprop="dateModified" datetime="2023-10-05T14:27:53+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:27:53" itemprop="dateModified" datetime="2023-10-05T14:27:53+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/latex-typeset-code-list/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/latex-typeset-code-list/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>922</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -415,16 +496,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ol>
-<li>排版一段代码用lstlisting环境（listing宏包）</li>
-<li>将每一段代码用minipage环境包起来成为一个个box（注意设置每个minipage的宽度）</li>
-<li>中间可以用\rule命令画线，用\hspace调整间距</li>
-<li>若要给代码整体画个外框，可以将所有box一起放在framed环境（framed宏包）中</li>
-<li>整体放入figure环境中，成为浮动体</li>
-</ol>
-<p>示例代码：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[!htb]</span><br><span class="line">        <span class="keyword">\lstset</span>&#123;language=C,</span><br><span class="line">                numbers=left,</span><br><span class="line">                numbersep=3pt,</span><br><span class="line">                <span class="comment">%frame=single,</span></span><br><span class="line">                tabsize=2,</span><br><span class="line">                xleftmargin=.05<span class="keyword">\textwidth</span>,</span><br><span class="line">                <span class="comment">%xrightmargin=.05\textwidth,</span></span><br><span class="line">                basicstyle=<span class="keyword">\footnotesize</span>,</span><br><span class="line">            &#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;framed&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;0.45<span class="keyword">\columnwidth</span>&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;</span><br><span class="line">int callee(int x)&#123;</span><br><span class="line">    return x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\rule</span>&#123;.1pt&#125;&#123;36mm&#125;</span><br><span class="line"><span class="keyword">\hspace</span>&#123;5pt&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;0.3<span class="keyword">\columnwidth</span>&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;</span><br><span class="line">int caller() &#123;</span><br><span class="line">    return callee(5);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;framed&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;An example program&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
-
+          1. 排版一段代码用lstlisting环境（listing宏包）
+ 2. 将每一段代码用minipage环境包起来成为一个个box（注意设置每个minipage的宽度）
+ 3. 中间可以用\rule
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/latex-typeset-code-list/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -442,11 +524,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/less-is-more/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -465,41 +547,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-19 01:06:00" itemprop="dateCreated datePublished" datetime="2022-01-19T01:06:00+08:00">2022-01-19</time>
+              <time title="Created: 2022-01-19 01:06:00" itemprop="dateCreated datePublished" datetime="2022-01-19T01:06:00+08:00">2022-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:27:58" itemprop="dateModified" datetime="2023-10-05T14:27:58+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:27:58" itemprop="dateModified" datetime="2023-10-05T14:27:58+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E6%80%9D%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">思维</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/less-is-more/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/less-is-more/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>15</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -511,8 +607,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>如题。<br>是以圣人抱一以为天下式。</p>
-
+          如题。
+是以圣人抱一以为天下式。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/less-is-more/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -530,11 +634,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/growth-mindset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -553,41 +657,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-05 12:09:00" itemprop="dateCreated datePublished" datetime="2022-01-05T12:09:00+08:00">2022-01-05</time>
+              <time title="Created: 2022-01-05 12:09:00" itemprop="dateCreated datePublished" datetime="2022-01-05T12:09:00+08:00">2022-01-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:28:03" itemprop="dateModified" datetime="2023-10-05T14:28:03+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:28:03" itemprop="dateModified" datetime="2023-10-05T14:28:03+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E6%80%9D%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">思维</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/growth-mindset/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/growth-mindset/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>656</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -599,51 +717,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="什么是成长型思维"><a href="#什么是成长型思维" class="headerlink" title="什么是成长型思维"></a>什么是成长型思维</h2><ul>
-<li>概念来源于心理学家卡罗尔·德韦克的经典作品《<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27154533/">终身成长</a>》。</li>
-<li>主要体现在人在面对失败&#x2F;挫折时的想法<ul>
-<li>固定思维的人，会自我怀疑，容易深陷于失败而裹足不前，担心即使付出努力也可能得不到成功</li>
-<li>成长思维的人，虽然也会有一些负面情绪，但会很快调整心态，进行自我反思，尝试不同的策略去战胜种种困难和挑战</li>
-</ul>
-</li>
-</ul>
-<h2 id="两种想法的根源何在"><a href="#两种想法的根源何在" class="headerlink" title="两种想法的根源何在"></a>两种想法的根源何在</h2><ul>
-<li>对自己的期待不同<ul>
-<li>固定思维期待被别人看作有天分的人</li>
-<li>成长思维期待被别人看作肯努力的人</li>
-</ul>
-</li>
-<li>对失败的看法不同<ul>
-<li>固定思维把失败的行为转变成了失败的身份（我是一个失败者），更看重结果</li>
-<li>成长思维把失败这件事当作自己改进的机会（刻意练习，有失败才能让自己进步，变得更好），更看重过程</li>
-</ul>
-</li>
-</ul>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
-<li>被所申请的学校拒绝后<ul>
-<li>我不想质疑您的决定。我只是想问一下，如果下次我想再申请这所学校，我该怎么改进自己的申请书。如果您能在这方面给我一些反馈和建议，我将感激不尽。</li>
-<li>不仅要制定一个成长型思维模式计划，更要设想具体细节，设想你要如何实行它。</li>
-</ul>
-</li>
-</ul>
-<h2 id="个体的复杂性"><a href="#个体的复杂性" class="headerlink" title="个体的复杂性"></a>个体的复杂性</h2><p>两种思维模式并不是非此即彼的关系，人们可以在不同领域表现出不同的思维模式，很多人的成长型思维模式特质只会出现在自己感兴趣的领域。</p>
-<h2 id="怎样培养成长型思维"><a href="#怎样培养成长型思维" class="headerlink" title="怎样培养成长型思维"></a>怎样培养成长型思维</h2><h3 id="思想上"><a href="#思想上" class="headerlink" title="思想上"></a>思想上</h3><ul>
-<li>完成比完美更重要</li>
-<li>神经可塑性</li>
-<li>我不是一个完美的人，但我是一个坚韧宏毅的人</li>
-<li>拥抱失败</li>
-<li>接纳批评</li>
-<li>任何挫折和批评都将成为我成长道路上的垫脚石</li>
-</ul>
-<h3 id="行动上"><a href="#行动上" class="headerlink" title="行动上"></a>行动上</h3><ul>
-<li>刻意练习，用失败作为反馈，了解自己的不足</li>
-<li>总结，反思，找到错误发生的模式，找到自己犯错的根源，争取下次不犯同种类型的一批错误</li>
-<li>PDCA</li>
-<li>经常说具有成长思维特点的语言</li>
-<li>认清目标，不要为小事分心</li>
-<li>养成一系列好习惯</li>
-</ul>
-
+          什么是成长型思维
+ * 概念来源于心理学家卡罗尔·德韦克的经典作品《终身成长》。
+ * 主要体现在人在面对失败/挫折时的想法 * 固定思维的人，会自我怀疑，容易深陷于失败而裹足不前，担心即使付出努力也
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/growth-mindset/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -661,11 +745,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/jiangshangxing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -684,41 +768,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-05 03:22:00" itemprop="dateCreated datePublished" datetime="2022-01-05T03:22:00+08:00">2022-01-05</time>
+              <time title="Created: 2022-01-05 03:22:00" itemprop="dateCreated datePublished" datetime="2022-01-05T03:22:00+08:00">2022-01-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-23 07:39:23" itemprop="dateModified" datetime="2023-11-23T07:39:23+08:00">2023-11-23</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-11-23 07:39:23" itemprop="dateModified" datetime="2023-11-23T07:39:23+08:00">2023-11-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/jiangshangxing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/jiangshangxing/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>85</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -730,15 +828,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="verse">
+          好江风
 
-<p>好江风<br /><br>将这轻舟催送<br /><br>波翻浪涌<br /><br>添几分壮志豪情<br /><br>龙潭虎穴何足惧<br /><br>剑戟丛中久鏖兵<br /><br>非是俺藐群雄<br /><br>一部春秋铭记<br /><br>义不负心泰山重<br /><br>忠不顾死何言轻<br /><br>桃园金兰誓<br /><br>弟兄山海盟<br /><br>早把这七尺身躯青龙偃月<br /><br>付于苍生<br /></p>
-</div>
+将这轻舟催送
 
-<p><img src="/hexoblog/ox-hugo/2022-01-05_11-13-43_screenshot.png"></p>
-<p><img src="/hexoblog/ox-hugo/2022-01-05_11-14-15_screenshot.png"></p>
-<p><img src="/hexoblog/ox-hugo/2022-01-05_11-14-30_screenshot.png"></p>
+波翻浪涌
 
+添几分壮志豪情
+
+龙潭虎穴何足惧
+
+剑戟丛中久鏖兵
+
+非是俺藐群雄
+
+一部春秋铭记
+
+义不负心泰山重
+
+忠不顾死何言轻
+
+桃园金兰誓
+
+弟兄山海盟
+
+早把这七尺身
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/jiangshangxing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -756,11 +878,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2022/01/summary-2021/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -779,41 +901,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2022-01-01 13:19:51" itemprop="dateCreated datePublished" datetime="2022-01-01T13:19:51+08:00">2022-01-01</time>
+              <time title="Created: 2022-01-01 13:19:51" itemprop="dateCreated datePublished" datetime="2022-01-01T13:19:51+08:00">2022-01-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2022/01/summary-2021/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022/01/summary-2021/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>1.4k</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -825,44 +961,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>西元新年伊始，心中有诸多感慨，却不想再抒发一遍了。仅从各方面回顾一下过去的一年，告别2021，拥抱2022。</p>
-<h2 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h2><ul>
-<li>饮食 平时食不过饱，饮不过量，比较注意营养均衡，限制红肉类摄入。偶尔吃大餐会比较放纵。</li>
-<li>运动 运动大概是今年我最有成就感的事情了。2月份开始跳绳减肥，大致每周2-3次，每次2000，直到9月份，减重8kg。 9月份停止跳绳，开始跑步，最初户外跑，天冷之后开始公司跑步机跑，每次4-5km。11月份，老婆给我买了跑步鞋，穿起来特别舒服，在此感谢。9月份开始腹肌撕裂者，不久后加入举铁。腹部力量明显增加，精力感觉也比之前更好。</li>
-<li>睡眠 熬夜较严重，常常1点钟之后才睡着。早上起的倒还行，一般8点多一点。天冷之后有时赖床。睡眠偏少，精力倒还不错，大概是得益于饮食和运动吧。</li>
-<li>打坐 前几个月还偶尔打坐，后来越来越懈怠，这两个月索性没打了。一是单纯打坐没有即时反馈，动力不足，二是自己心情较浮躁。</li>
-</ul>
-<h2 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a>旅行</h2><ul>
-<li>五一节去了重庆 TODO: 重庆行</li>
-<li>12月初去了径山寺 写了一篇游记：<a href="!--swig%EF%BF%BC0--">径山寺之行</a></li>
-</ul>
-<h2 id="家庭"><a href="#家庭" class="headerlink" title="家庭"></a>家庭</h2><ul>
-<li>2月2日和老婆领了证。从此，江湖路远，与子偕行。</li>
-<li>搬进了新家，虽然只有周末能回去</li>
-<li>不会做饭，但也承担了一部分的家庭义务</li>
-<li>和父母一年多没见了，因为疫情。最怕听到那句话：树欲静而风不止，子欲养而亲不待。而现实又有些无奈。后悔国庆节没回家。</li>
-</ul>
-<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><ul>
-<li>子弹笔记 记了有大半个本子，刚开始非常勤快，新鲜感过后，渐渐懒散，目前还在用的主要是习惯追踪模块。应该考虑重新用起来。</li>
-<li>emacs 学会了神之编辑器emacs。主要用org mode，现在工作流大半都依赖emacs了，也越来越熟练了。虽然学习过程中偶有波折，但总体感觉还是很值得的。</li>
-<li>卡片笔记写作 用org-roam，初步体验良好，但用起来还不熟练。目前主要还是按以前树状层级结构的思路去组织笔记库，应该结合卡片网状的思路，各取所长。</li>
-<li>n1盒子折腾 淘了3个n1盒子，分别刷成了openwrt，小钢炮，和android TV，基本满足了目前家庭网络的需求。折腾过程中，学会了不少linux系统以及网络方面的知识。</li>
-<li>英语 加入了公司背单词小分队，每天单词打卡。在知米背单词app上，把新概念3和4，雅思词汇，托福词汇，六级词汇，考研词汇，通通刷了一遍，虽然现在能记住的可能还不到1&#x2F;3，但能记一点是一点，感觉现在读英文文章都比以前顺畅得多。 学习了英语兔的语音教学，纠正了自己一些错误的发音。学会了自然拼读法。 学习了英语兔的语法讲解，并结合自己以前对英语语法的思考，重新梳理了语法体系，相信会对以后的英语学习很有帮助。</li>
-</ul>
-<h2 id="科研"><a href="#科研" class="headerlink" title="科研"></a>科研</h2><ul>
-<li>实验 大半年还是在做论文相关的实验，过程中还学习了软件工程&#x2F;设计模式方面的知识，感觉还是对复杂软件系统的驾驭能力不足。 6月份误删了vps上的整个系统，代码随之无影无踪，后面花了一个月时间才勉强恢复个七七八八。反思了自己的备份习惯和备份系统。 实验数据不理想，但是，就这样吧。</li>
-<li>论文撰写 拟好了提纲，写好了introduction，却卡在了interval analysis部分。多数时候还是有完美主义倾向，导致拖延。</li>
-</ul>
-<h2 id="2022展望"><a href="#2022展望" class="headerlink" title="2022展望"></a>2022展望</h2><ul>
-<li>完成比完美更重要</li>
-<li>好习惯继续保持，如饮食运动</li>
-<li>尽量不熬夜，每月熬夜不超过5次，超过12点上床算熬夜</li>
-<li>养成记笔记的习惯</li>
-<li>养成用思维导图思考的习惯</li>
-<li>养成用概念图学习的习惯</li>
-<li>坚持学英语 新概念中译英</li>
-</ul>
+          西元新年伊始，心中有诸多感慨，却不想再抒发一遍了。仅从各方面回顾一下过去的一年，告别2021，拥抱2022。
 
+健康
+ * 饮食 平时食不过饱，饮不过量，比较注意营养均衡，限制红肉类摄入。偶尔吃大餐会
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2022/01/summary-2021/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -880,11 +990,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2021/12/Inspectional-Reading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -903,41 +1013,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2021-12-18 13:24:00" itemprop="dateCreated datePublished" datetime="2021-12-18T13:24:00+08:00">2021-12-18</time>
+              <time title="Created: 2021-12-18 13:24:00" itemprop="dateCreated datePublished" datetime="2021-12-18T13:24:00+08:00">2021-12-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:28:32" itemprop="dateModified" datetime="2023-10-05T14:28:32+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:28:32" itemprop="dateModified" datetime="2023-10-05T14:28:32+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2021/12/Inspectional-Reading/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021/12/Inspectional-Reading/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>1.2k</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -949,30 +1073,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="什么是检视阅读"><a href="#什么是检视阅读" class="headerlink" title="什么是检视阅读"></a>什么是检视阅读</h2><p>检视阅读就是用浏览的方法系统性地去阅读。表面上看有点像我们平时的粗读，但其实完全不一样。关键的不同就是系统性。所谓系统性，就是说它有一套科学的流程方法，不是漫无目的，也不是随兴而至，更不是走马观花。而我们许多人，平时读书，不大注意方法，读了不少，收获不多，时间一长，连本就寥寥无几的那点收获也丢掉了。</p>
-<h2 id="为什么要检视阅读"><a href="#为什么要检视阅读" class="headerlink" title="为什么要检视阅读"></a>为什么要检视阅读</h2><p>检视阅读是一种高效的读书方法。我们平时的读书行为，主要还是为我们的现实生活服务的。不管是为了增进我们对现实世界的理解，还是为了学习解决现实问题的技巧，读书都是一个很高效的途径，特别是在这个书籍资源获取很便捷的时代。但是，如果我们没有掌握正确的方法，我们就很可能把自己淹没在这些资源中，效率很低，浪费不少时间和精力。检视阅读就是这样一种方法，帮助我们在读一本书时去伪存真，快速吸收其精华；还能帮助我们快速判断一本书的好坏，并决定是丢弃还是继续深入阅读。总之，检视阅读就是提高我们读书效率的秘诀。</p>
-<h2 id="检视阅读怎么做"><a href="#检视阅读怎么做" class="headerlink" title="检视阅读怎么做"></a>检视阅读怎么做</h2><h3 id="问自己问题"><a href="#问自己问题" class="headerlink" title="问自己问题"></a>问自己问题</h3><p>为什么要问问题呢？其一，我们天性都是好奇的，我们的头脑对问题有一种特殊的敏感，头脑中有了问题，就会推着你去寻找答案，这会保持我们阅读的动力。其二，问题可以使我们的头脑聚焦在少量的目标上，提高思维的专注度，不至于漫无目的而效率低下。</p>
-<p>从最通用的角度来说，对于一本书，要提出四个问题：</p>
-<ol>
-<li>这本书整体在谈论什么，属于哪个类别的？这是关于这本书的主题。</li>
-<li>这本书细部说了什么，怎么说的？这主要是要弄明白作者围绕主题说了哪些从属议题，它们之间的逻辑关系是怎样的。</li>
-<li>这本书说得有道理吗？是全部有道理，还是部分有道理？这个决定了这本书价值到底如何。</li>
-<li>这本书跟自己有什么关系？这样才能明白读这本书到底对自己有什么意义。</li>
-</ol>
-<h3 id="带着问题去寻宝"><a href="#带着问题去寻宝" class="headerlink" title="带着问题去寻宝"></a>带着问题去寻宝</h3><p>有了问题，就把自己想象成一个侦探，在找寻一本书的主题或思想的线索。</p>
-<p>主要关注以下这几个地方：</p>
-<ul>
-<li>书名</li>
-<li>目录</li>
-<li>序言</li>
-<li>开头和结尾</li>
-<li>抽取感兴趣的段落</li>
-<li>找相关的书评</li>
-</ul>
-<p>这些地方很可能藏着整本书的精华，读了它们，就能回答上一步给自己提的问题了。很多时候甚至不需要读完，读多读少以及怎么读，完全看自己的需求，总之，以能回答自己的问题，形成对书的基本轮廓为目标。</p>
-<h3 id="做笔记"><a href="#做笔记" class="headerlink" title="做笔记"></a>做笔记</h3><p>不动笔墨不读书，可以将对以上四个问题的回答记录下来，就构成了这本书的读书笔记。特别是对第二个问题的回答，会帮助我们记录下这本书的基本框架。这个框架笔记，会在将来复习时帮我们快速回忆起整本书的精华内容。</p>
-<h2 id="什么情况适合检视阅读"><a href="#什么情况适合检视阅读" class="headerlink" title="什么情况适合检视阅读"></a>什么情况适合检视阅读</h2><p>检视阅读应该在初次读一本书时使用。初次读一本书时，对书的内容不了解，不知道是好是坏，用检视阅读会极大提高效率。检视阅读过程中，我们会形成对书的判断，如果不合胃口，随时可以停下来丢掉。检视阅读完成之后，如果觉得这本书价值很高，就可以深入分析精读；如果觉得一般般，那么记好必要的笔记后，不再继续读下去也无妨了，因为读这本书的目的已经达到了。</p>
-
+          什么是检视阅读
+检视阅读就是用浏览的方法系统性地去阅读。表面上看有点像我们平时的粗读，但其实完全不一样。关键的不同就是系统性。所谓系统性，就是说它有一套科学的流程方法，不是漫无目的，也不是随兴而至，更
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2021/12/Inspectional-Reading/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -990,11 +1100,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2021/12/reading-a-paper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -1013,41 +1123,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2021-12-16 16:14:00" itemprop="dateCreated datePublished" datetime="2021-12-16T16:14:00+08:00">2021-12-16</time>
+              <time title="Created: 2021-12-16 16:14:00" itemprop="dateCreated datePublished" datetime="2021-12-16T16:14:00+08:00">2021-12-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:28:27" itemprop="dateModified" datetime="2023-10-05T14:28:27+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:28:27" itemprop="dateModified" datetime="2023-10-05T14:28:27+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2021/12/reading-a-paper/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021/12/reading-a-paper/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>1k</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -1059,43 +1183,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>三遍法高效读论文。</p>
-<h2 id="什么是三遍法"><a href="#什么是三遍法" class="headerlink" title="什么是三遍法"></a>什么是三遍法</h2><p>文章读三遍。三遍层层递进，每一遍有不同的侧重，完成不同的任务，最终达到深度理解一篇文章的目的。</p>
-<h2 id="怎么做三遍法"><a href="#怎么做三遍法" class="headerlink" title="怎么做三遍法"></a>怎么做三遍法</h2><h3 id="第一遍：浏览"><a href="#第一遍：浏览" class="headerlink" title="第一遍：浏览"></a>第一遍：浏览</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>仔细读title&#x2F;abstract&#x2F;introduction</li>
-<li>读章节标题</li>
-<li>看一眼关于数学的部分，找出文章的理论基础</li>
-<li>读conclusion</li>
-<li>浏览reference，看哪些ref是自己读过的，哪些没读过</li>
-</ol>
-<h4 id="耗时"><a href="#耗时" class="headerlink" title="耗时"></a>耗时</h4><p>5～10 min</p>
-<h4 id="需要回答的问题：5个C"><a href="#需要回答的问题：5个C" class="headerlink" title="需要回答的问题：5个C"></a>需要回答的问题：5个C</h4><ol>
-<li>Category: What type of paper is this? A measurement paper? An analysis of an existing system? A description of a research prototype?</li>
-<li>Context: Which other papers is it related to? Which theoretical bases were used to analyze the problem?</li>
-<li>Correctness: Do the assumptions appear to be valid?</li>
-<li>Contributions: What are the paper’s main contributions?</li>
-<li>Clarity: Is the paper well written?</li>
-</ol>
-<h4 id="达到的效果"><a href="#达到的效果" class="headerlink" title="达到的效果"></a>达到的效果</h4><p>if:<br>  文章不吸引你 or 文章所讲的你已经很熟悉了 or 文章所基于的假设明显是错的<br>then:<br>  丢弃之<br>else:<br>  继续</p>
-<h3 id="第二遍：细读"><a href="#第二遍：细读" class="headerlink" title="第二遍：细读"></a>第二遍：细读</h3><h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>看图表&#x2F;示例</li>
-<li>把reference中自己未读过的文献标注出来（用于补充背景知识）</li>
-</ol>
-<h4 id="耗时-1"><a href="#耗时-1" class="headerlink" title="耗时"></a>耗时</h4><p>1 hour</p>
-<h4 id="达到的效果-1"><a href="#达到的效果-1" class="headerlink" title="达到的效果"></a>达到的效果</h4><ol>
-<li>一般来说，能理解文章的大概内容，能向别人说出文章的核心思想（the main thrust）和支撑论据。</li>
-<li>少数情况，无法理解这篇文章，可能是由于陌生的主题，不熟悉的术语，或者作者使用的方法不熟悉。 也可能作者写得不好，或者只是你太困了。这时可以判断一下文章的价值，低价值的可以直接丢弃，高价值的，如果是缺少背景知识，就去补充背景知识，再来细读。</li>
-</ol>
-<h3 id="第三遍：揣摩"><a href="#第三遍：揣摩" class="headerlink" title="第三遍：揣摩"></a>第三遍：揣摩</h3><h4 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>尝试把论文的方法重新实现一遍</li>
-<li>跟原文方法相比较，深入理解作者的创新点，尝试找出作者的错误假设。此外，还要思考如果是自己写，自己会怎么做，并在对比中学习作者的各种技巧。还要把关于future work的想法记下来。</li>
-</ol>
-<h4 id="耗时-2"><a href="#耗时-2" class="headerlink" title="耗时"></a>耗时</h4><ul>
-<li>对于新手，4-5 hour</li>
-<li>对于老手，1 hour</li>
-</ul>
-<h4 id="达到的效果-2"><a href="#达到的效果-2" class="headerlink" title="达到的效果"></a>达到的效果</h4><p>能从记忆中重建全文的结构，并指出其优缺点。能正确指出论文的隐含假设，以及其实验或理论分析方面潜在的问题。</p>
+          三遍法高效读论文。
 
+什么是三遍法
+文章读三遍。三遍层层递进，每一遍有不同的侧重，完成不同的任务，最终达到深度理解一篇文章的目的。
+
+怎么做三遍法
+第一遍：浏览
+步骤
+ 1. 仔细读title/abs
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2021/12/reading-a-paper/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1113,11 +1217,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2021/12/reading-skills-analytical/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -1136,41 +1240,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2021-12-12 16:32:00" itemprop="dateCreated datePublished" datetime="2021-12-12T16:32:00+08:00">2021-12-12</time>
+              <time title="Created: 2021-12-12 16:32:00" itemprop="dateCreated datePublished" datetime="2021-12-12T16:32:00+08:00">2021-12-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:28:29" itemprop="dateModified" datetime="2023-10-05T14:28:29+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:28:29" itemprop="dateModified" datetime="2023-10-05T14:28:29+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E8%AF%BB%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2021/12/reading-skills-analytical/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021/12/reading-skills-analytical/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>472</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -1182,39 +1300,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="分析阅读的目的"><a href="#分析阅读的目的" class="headerlink" title="分析阅读的目的"></a>分析阅读的目的</h2><p>完整地吸取一本书的精华。</p>
-<h2 id="分析阅读的方法"><a href="#分析阅读的方法" class="headerlink" title="分析阅读的方法"></a>分析阅读的方法</h2><ul>
-<li>第一阶段：整理内容大纲<ol>
-<li>依照书的种类与主题来分类。</li>
-<li>使用最简短的文字说明整本书在谈些什么。</li>
-<li>将主要部分按顺序与关联性列举出来。将全书的大纲列举出来，并将各个部分的大纲也列出来。</li>
-<li>确定作者想要解决的问题。</li>
-</ol>
-</li>
-<li>第二阶段：诠释这本书的内容<ol>
-<li>找出关键字，与作者达成共识。</li>
-<li>将一本书中最重要的句子圈出来，找出其中的主旨。</li>
-<li>找出作者的论述，重新架构这些论述的前因后果，以明白作者的主张。</li>
-<li>确定哪些问题已经被解决，哪些还没有被解决。</li>
-</ol>
-</li>
-</ul>
-<p>综合看前两个阶段，先是将整体分成许多部分，然后再从关键词这样的细节，一步步找出主旨与论述，再重新架构出一个整体。</p>
-<ul>
-<li>第三阶段：评论一本书<ol>
-<li>除非你已经完成大纲架构，也能诠释整本书了，否则不要轻易批评。</li>
-<li>当你不同意作者观点时，要理性的表达自己，不要无理的辩驳或争论。</li>
-<li>尊重知识与个人观点的不同，在做出任何判断之前，都要找出理论依据。</li>
-</ol>
-</li>
-</ul>
-<h2 id="分析阅读的应用"><a href="#分析阅读的应用" class="headerlink" title="分析阅读的应用"></a>分析阅读的应用</h2><ul>
-<li>分析阅读的成本较高。</li>
-<li>人的精力有限，不应该不分青红皂白的使用分析阅读。</li>
-<li>分析阅读应该用于阅读对自己有高价值的书籍。</li>
-<li>先经由检视阅读，判断书籍的价值，筛选出高价值的书籍。</li>
-</ul>
+          分析阅读的目的
+完整地吸取一本书的精华。
 
+分析阅读的方法
+ * 第一阶段：整理内容大纲 1. 依照书的种类与主题来分类。
+    2. 使用最简短的文字说明整本书在谈些什么。
+    3. 将主要部
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2021/12/reading-skills-analytical/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1232,7 +1332,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hexoblog/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/hexoblog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hexoblog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/hexoblog/page/5/">5</a><a class="page-number" href="/hexoblog/page/6/">6</a><a class="extend next" rel="next" href="/hexoblog/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/hexoblog/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/hexoblog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hexoblog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/hexoblog/page/5/">5</a><a class="page-number" href="/hexoblog/page/6/">6</a><a class="extend next" rel="next" href="/hexoblog/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1276,10 +1376,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -1290,6 +1390,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hybert"
+      src="/hexoblog/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Hybert</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -1299,20 +1401,20 @@
           <a href="/hexoblog/archives/">
         
           <span class="site-state-item-count">53</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/hexoblog/categories/">
           
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/hexoblog/tags/">
           
         <span class="site-state-item-count">20</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -1329,16 +1431,6 @@
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">Title</a>
-        </li>
-    </ul>
-  </div>
 
       </div>
 
@@ -1364,21 +1456,31 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hybert</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    <span title="站点总字数">71k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">1:04</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -1416,6 +1518,10 @@
 
 
 
+  
+<script src="/hexoblog/js/local-search.js"></script>
+
+
 
 
 
@@ -1430,6 +1536,17 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hybert.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
 
 </body>
 </html>

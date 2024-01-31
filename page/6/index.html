@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"simplecoding.fun","root":"/hexoblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="子来园">
 <meta property="og:url" content="https://simplecoding.fun/hexoblog/page/6/index.html">
 <meta property="og:site_name" content="子来园">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="article:author" content="Hybert">
 <meta name="twitter:card" content="summary">
 
@@ -37,7 +37,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh-CN'
+    lang   : 'en'
   };
 </script>
 
@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -100,6 +100,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -111,29 +112,56 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/hexoblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/hexoblog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/hexoblog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -159,11 +187,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2017/08/journal-2017-08-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -182,41 +210,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2017-08-03 02:00:26" itemprop="dateCreated datePublished" datetime="2017-08-03T02:00:26+08:00">2017-08-03</time>
+              <time title="Created: 2017-08-03 02:00:26" itemprop="dateCreated datePublished" datetime="2017-08-03T02:00:26+08:00">2017-08-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2017/08/journal-2017-08-03/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2017/08/journal-2017-08-03/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>686</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -228,16 +270,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>近日，心颇不安定。</p>
-<p>世上事大多说起来容易，做起来难。修心亦是如此。</p>
-<p>定心须先立志。所谓知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。立了志向，便有了方向，便不至于在纷纷扰扰中迷失。否则，便如海上一叶孤舟，随波逐流，不知所终。诸葛亮《诫子书》中说，“非淡泊无以明志，非宁静无以致远”，也是此意。</p>
-<p>可是该立何志呢？</p>
-<p>这是一个极难的问题。常言道，人各有志。人或以权倾朝野为志，或以腰缠万贯为志，或以青史留名为志，或想做医生救死扶伤，或想做教师桃李满天下，或想做警察惩奸除恶，或想写得锦绣文章，或想吃得天下美食，或想走遍天涯海角，又或者，只想老婆孩子热炕头。百年悲笑，无非饮食男女。虽无可厚非，但总有狭隘之感。</p>
-<p>有没有博大一些的呢？也是有的。子曰：吾十有五而志于学，三十而立。程子曰：有求为圣人之志，然后可与共学。张子曰：为天地立心，为生民立命，为往圣继绝学，为万世开太平。相比之下，儒家理想博大豪壮而振奋人心。</p>
-<p>似乎有两个我在对话。一个说，既然必须选择一个目标做方向，那就选最宏大的嘛，应该听圣人言，以做圣人为人生第一等事，虽千万人吾往矣。另一个说，以做圣人为志向，太笼统了吧，很难落实到行动，而且天性愚钝，到时成不了圣人，反贻笑大方了。</p>
-<p>说白了，自己心中仍有疑惑，并不能坚定的选择做圣人为自己的志向。这也是自己心不安定的原因，也造成了在行动上毫无改善。现在是关键时期，每念及此，更添几分焦虑。</p>
-<p>打算周末去法镜寺走走。一来期待遇到高人，解我难题，也未可知；一来即使不遇高人，能与人倾诉一番，也能稍慰我心；一来探探有无禅修课程，通过禅修静静心，即便没有，吃一餐斋饭，也是一件美事！</p>
+          近日，心颇不安定。
 
+世上事大多说起来容易，做起来难。修心亦是如此。
+
+定心须先立志。所谓知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。立了志向，便有了方向，便不至于在纷纷扰扰中迷失。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2017/08/journal-2017-08-03/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -255,11 +300,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2017/08/journal-2017-08-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -278,41 +323,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2017-08-02 02:06:51" itemprop="dateCreated datePublished" datetime="2017-08-02T02:06:51+08:00">2017-08-02</time>
+              <time title="Created: 2017-08-02 02:06:51" itemprop="dateCreated datePublished" datetime="2017-08-02T02:06:51+08:00">2017-08-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-01-30 19:30:01" itemprop="dateModified" datetime="2024-01-30T19:30:01+08:00">2024-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2017/08/journal-2017-08-02/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2017/08/journal-2017-08-02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>94</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -324,12 +383,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>少年时，便觉得诗词是最美的文字。</p>
-<p>常想象自己挥笔赋诗之潇洒，只恨才不足。</p>
-<p>近日，偶得稼轩词一二句，感其豪壮，兴趣辄増，遂一发不可收拾。</p>
-<p>于众名家中，尤爱苏辛豪放，太祖气势。</p>
-<p>当常诵其词，养英雄气。</p>
+          少年时，便觉得诗词是最美的文字。
 
+常想象自己挥笔赋诗之潇洒，只恨才不足。
+
+近日，偶得稼轩词一二句，感其豪壮，兴趣辄増，遂一发不可收拾。
+
+于众名家中，尤爱苏辛豪放，太祖气势。
+
+当常诵其词，养英雄
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2017/08/journal-2017-08-02/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -347,11 +417,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://simplecoding.fun/hexoblog/posts/2009/12/old-essay-mood-recording/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="image" content="/hexoblog/images/avatar.jpg">
       <meta itemprop="name" content="Hybert">
       <meta itemprop="description" content="">
     </span>
@@ -370,41 +440,55 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2009-12-11 01:41:00" itemprop="dateCreated datePublished" datetime="2009-12-11T01:41:00+08:00">2009-12-11</time>
+              <time title="Created: 2009-12-11 01:41:00" itemprop="dateCreated datePublished" datetime="2009-12-11T01:41:00+08:00">2009-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-05 14:06:34" itemprop="dateModified" datetime="2023-10-05T14:06:34+08:00">2023-10-05</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-05 14:06:34" itemprop="dateModified" datetime="2023-10-05T14:06:34+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/hexoblog/categories/%E6%80%9D%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">思维</span></a>
                 </span>
             </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/hexoblog/posts/2009/12/old-essay-mood-recording/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2009/12/old-essay-mood-recording/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-                <span class="post-meta-item-text">本文字数：</span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
               <span>311</span>
             </span>
-            <span class="post-meta-item" title="阅读时长">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -416,11 +500,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>想到一些事情，心情豁然！</p>
-<p>曾羡靖节种豆南山，怡情五柳，淡然一生。然又恐过而无踪，如鸟去无影，烟散云尽，终不甘心。始思当以润之、盖茨为榜样，轰烈一生，史册有载，方不枉一世。然若此则必苦累非常，且成功几率甚小，到头一场空，人生必如此苦累乎？鱼与熊掌不可兼得，不知如何取舍也，故而苦恼。</p>
-<p>近日慎思，闻高言妙语，始悟。</p>
-<p>人生无须苦累若此，有最紧要者曰“幸福”，存爱己之人与己爱之人，可以无悔矣。己爱者，必不负之；爱己者，必赴汤蹈火，报之桃李。有感于《蜘蛛侠》，悟能力与责任相关之理，能力越高，责任愈大。成也心安，败也泰然，尽力则无悔。花样年华，当努力提高能力，勇担吾辈之责，为爱己者及己爱者，珍惜之，其幸福即为吾幸福，勿负之，我无憾矣！</p>
+          想到一些事情，心情豁然！
 
+曾羡靖节种豆南山，怡情五柳，淡然一生。然又恐过而无踪，如鸟去无影，烟散云尽，终不甘心。始思当以润之、盖茨为榜样，轰烈一生，史册有载，方不枉一世。然若此则必苦累非常，且成功几
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hexoblog/posts/2009/12/old-essay-mood-recording/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -438,7 +528,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hexoblog/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/hexoblog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hexoblog/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/hexoblog/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/hexoblog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hexoblog/page/5/">5</a><span class="page-number current">6</span>
   </nav>
 
 
@@ -482,10 +572,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -496,6 +586,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hybert"
+      src="/hexoblog/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Hybert</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -505,20 +597,20 @@
           <a href="/hexoblog/archives/">
         
           <span class="site-state-item-count">53</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/hexoblog/categories/">
           
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/hexoblog/tags/">
           
         <span class="site-state-item-count">20</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -535,16 +627,6 @@
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">Title</a>
-        </li>
-    </ul>
-  </div>
 
       </div>
 
@@ -570,21 +652,31 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hybert</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    <span title="站点总字数">71k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">1:04</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -622,6 +714,10 @@
 
 
 
+  
+<script src="/hexoblog/js/local-search.js"></script>
+
+
 
 
 
@@ -636,6 +732,17 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hybert.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
 
 </body>
 </html>
